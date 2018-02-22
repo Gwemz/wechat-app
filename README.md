@@ -12,3 +12,7 @@
 豆瓣电影API文档： https://developers.douban.com/wiki/?title=movie_v2
 
 但是，微信小程序无法调用豆瓣接口，替代接口为：https://douban.uieee.com (不能过于频繁访问)
+
+#### 报错：https://douban.uieee.com 不在以下 request 合法域名列表中
+
+解决方法: 详情 -》 (勾选) 不校验安全域名、web-view 域名、TLS 版本以及 HTTPS 证书
