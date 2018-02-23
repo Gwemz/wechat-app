@@ -1,7 +1,8 @@
+<import src="../movie-grid/movie-grid-template.wxml" />
 <view class="container">
-  <view class="session-search">
-    <icon></icon>
-    <text>搜索电影</text>
+  <view class="session-search session-content-spacing">
+    <icon class="session-search-icon" type="search" size="16"></icon>
+    <text class="search-placeholder">搜索电影</text>
   </view>
   <view class="page-session page-session-spacing">
     <view class="session-header">
@@ -13,7 +14,7 @@
         <block wx:for="{{inTheaters.movies}}" wx:for-item="item">
             <template is="movie-grid-template" data="{{...item}}"/>
         </block>
-      </scroll-view>
+      </scroll-view>  
     </view>
   </view>
   <view class="page-session page-session-spacing">

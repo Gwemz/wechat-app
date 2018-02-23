@@ -36,6 +36,10 @@ page{
   padding-bottom:30rpx;
 }
 
+.session-content-spacing{
+  margin-bottom:30rpx;
+}
+
 .session-header{
   padding:20rpx 30rpx;
   display:flex;

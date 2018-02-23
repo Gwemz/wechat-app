@@ -112,5 +112,46 @@ Page({
     if(offsetTop > 10 && !this.data.acquiredSelected){
       this.getSelectedListData();
     }
+  },
+  // 获取精选榜单数据
+  getSelectedListData:function(){
+    var that = this;
+    // 豆瓣口碑榜、新片榜、票房榜不可用，这里用豆瓣Top250数据
+    var top250URL = app.globalData.doubanBase + app.globalData.top250 + "?start=0&&count=12";
+    console.log(top250URL);
+    if(!this.data.acquiredSelected){
+      var readyData = {};
+      readyData["acquiredSelected"] = {
+        "acquiredSelected": true
+      }
+      this.setData(readyData);
+
+      wx.showToast({
+        title: '加载中',
+        icon: 'loading',
+        duration: 10000
+      })
+
+      // 请求电影数据
+      wx.request({
+        url: top250URL,
+        data: {},
+        method: 'GET', // OPTIONS, GET, HEAD, POST, PUT, DELETE, TRACE, CONNECT
+        // header: {}, // 设置请求的 header
+        success: function(res){
+          // success
+          var data = res.data;
+          console.log(data);
+          that.processSelectedListData(data);
+        },
+        fail: function() {
+          // fail
+        },
+        complete: function() {
+          // complete
+          wx.hideToast();
+        }
+      })
+    }
   }
 })
