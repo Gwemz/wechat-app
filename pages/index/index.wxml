@@ -1,4 +1,5 @@
-<import src="../movie-grid/movie-grid-template.wxml" />
+<!-- /pages/index/index.wxml -->
+<import src="/pages/movie-grid/movie-grid-template.wxml" />
 <view class="container">
   <view class="session-search session-content-spacing">
     <icon class="session-search-icon" type="search" size="16"></icon>
@@ -10,14 +11,14 @@
       <text class="session-header-more">更多</text>
     </view>
     <view class="session-content session-content-spacing">
-      <scroll-view class="movie-scroll" scroll-x="true">
+      <scroll-view class="movie-scroll" scroll-x>
         <block wx:for="{{inTheaters.movies}}" wx:for-item="item">
             <template is="movie-grid-template" data="{{...item}}"/>
         </block>
       </scroll-view>  
     </view>
   </view>
-  <view class="page-session page-session-spacing">
+  <!-- <view class="page-session page-session-spacing">
     <view class="session-header">
       <text class="session-header-title">即将上映</text>
       <text class="session-header-more">更多</text>
@@ -29,8 +30,8 @@
         </block>
       </scroll-view>
     </view>
-  </view>
-  <view class="page-session page-session-spacing">
+  </view> -->
+  <!-- <view class="page-session page-session-spacing">
     <view class="session-header">
       <text class="session-header-title">精选榜单</text>
       <text class="session-header-more">更多</text>
@@ -42,5 +43,5 @@
         </block>
       </scroll-view>
     </view>
-  </view>
+  </view> -->
 </view>

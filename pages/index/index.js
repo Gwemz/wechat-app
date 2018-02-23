@@ -1,6 +1,6 @@
 //index.js
 //获取应用实例
-const app = getApp()
+const app = getApp();
 
 Page({
   data: {
@@ -14,12 +14,6 @@ Page({
     newMovie: {},   //新片榜
     usBox: {}    //票房榜
   },
-  //事件处理函数
-  bindViewTap: function () {
-    wx.navigateTo({
-      url: '../logs/logs'
-    })
-  },
   onLoad: function (options) {
     // 页面初始化，options为页面跳转所带过来的参数
     var inTheatersURL = app.globalData.doubanBase + app.globalData.inTheaters + "?start=0&&count=10";
@@ -29,14 +23,6 @@ Page({
 
     this.getMovieListData(inTheatersURL, "inTheaters", "影院热映");
     this.getMovieListData(comingSoonURL, "commingSoon", "精选榜单");
-  },
-  getUserInfo: function (e) {
-    console.log(e)
-    app.globalData.userInfo = e.detail.userInfo
-    this.setData({
-      userInfo: e.detail.userInfo,
-      hasUserInfo: true
-    })
   },
   getMovieListData: function (url, settedKey, categoryTitle) {
     wx.showToast({
@@ -71,87 +57,87 @@ Page({
   // 处理电影数据
   processMovieListData: function (data, settedKey, categoryTitle) {
     var movies = [];
-    for(let idx in data.subjects){
+    for (let idx in data.subjects) {
       var subject = data.subjects[idx];
       var showRating = false;
       var showWish = false;
-      if('inTheaters' == settedKey){
+      if ('inTheaters' == settedKey) {
         showRating = true;
         showWish = false;
-      }else{
+      } else {
         showRating = true;
         showWish = false;
       }
       var temp = {
         id: subject.id,
         title: subject.title,
-        rating:subject.rating,
-        collect_count:subject.collect_count,
-        images:subject.images,
-        subtype:subject.subtype,
-        directors:subject.directors,
-        casts:subject.casts,
-        year:subject.year,
-        showRating:showRating,
-        showWish:showWish
+        rating: subject.rating,
+        collect_count: subject.collect_count,
+        images: subject.images,
+        subtype: subject.subtype,
+        directors: subject.directors,
+        casts: subject.casts,
+        year: subject.year,
+        showRating: showRating,
+        showWish: showWish
       };
       movies.push(temp);
     };
     var readyData = {};
     readyData[settedKey] = {
-      categoryTitle : categoryTitle,
-      movies:movies
+      categoryTitle: categoryTitle,
+      movies: movies
     };
     console.log(readyData);
     this.setData(readyData);
   },
   // 滑动屏幕
-  handleTouchMove:function(event){
+  handleTouchMove: function (event) {
     var offsetTop = event.target.offsetTop;
     console.log('handleTouchMove offsetTop:' + offsetTop);
-    if(offsetTop > 10 && !this.data.acquiredSelected){
+    if (offsetTop > 10 && !this.data.acquiredSelected) {
       this.getSelectedListData();
     }
   },
   // 获取精选榜单数据
-  getSelectedListData:function(){
-    var that = this;
-    // 豆瓣口碑榜、新片榜、票房榜不可用，这里用豆瓣Top250数据
-    var top250URL = app.globalData.doubanBase + app.globalData.top250 + "?start=0&&count=12";
-    console.log(top250URL);
-    if(!this.data.acquiredSelected){
-      var readyData = {};
-      readyData["acquiredSelected"] = {
-        "acquiredSelected": true
-      }
-      this.setData(readyData);
+  // getSelectedListData: function () {
+  //   var that = this;
+  //   // 豆瓣口碑榜、新片榜、票房榜不可用，这里用豆瓣Top250数据
+  //   var top250URL = app.globalData.doubanBase + app.globalData.top250 + "?start=0&&count=12";
+  //   console.log(top250URL);
+  //   if (!this.data.acquiredSelected) {
+  //     var readyData = {};
+  //     readyData["acquiredSelected"] = {
+  //       "acquiredSelected": true
+  //     }
+  //     this.setData(readyData);
 
-      wx.showToast({
-        title: '加载中',
-        icon: 'loading',
-        duration: 10000
-      })
+  //     wx.showToast({
+  //       title: '加载中',
+  //       icon: 'loading',
+  //       duration: 10000
+  //     })
 
-      // 请求电影数据
-      wx.request({
-        url: top250URL,
-        data: {},
-        method: 'GET', // OPTIONS, GET, HEAD, POST, PUT, DELETE, TRACE, CONNECT
-        // header: {}, // 设置请求的 header
-        success: function(res){
-          // success
-          var data = res.data;
-          console.log(data);
-          that.processSelectedListData(data);
-        },
-        fail: function() {
-          // fail
-        },
-        complete: function() {
-          // complete
-          wx.hideToast();
-        }
-      })
-    }
-  }
+  //     // 请求电影数据
+  //     wx.request({
+  //       url: top250URL,
+  //       data: {},
+  //       method: 'GET', // OPTIONS, GET, HEAD, POST, PUT, DELETE, TRACE, CONNECT
+  //       // header: {}, // 设置请求的 header
+  //       success: function (res) {
+  //         // success
+  //         var data = res.data;
+  //         console.log(data);
+  //         that.processSelectedListData(data);
+  //       },
+  //       fail: function () {
+  //         // fail
+  //       },
+  //       complete: function () {
+  //         // complete
+  //         wx.hideToast();
+  //       }
+  //     })
+  //   }
+  // }
 })

@@ -1,7 +1,6 @@
 /**app.wxss**/
 page{
   height:100%;
-  background:#91d5ff;
   font-family: -apple-system-font, Arial, Helvetica, sans-serif;
   font-size:32rpx;
   line-height: 1.42857;
