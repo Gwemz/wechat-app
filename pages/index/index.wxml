@@ -3,7 +3,7 @@
 <view class="container">
   <view class="session-search session-content-spacing">
     <icon class="session-search-icon" type="search" size="16"></icon>
-    <text class="search-placeholder">搜索电影</text>
+    <text class="search-placeholder" bindtap="bindSearchNavigate">搜索电影</text>
   </view>
   <view class="page-session page-session-spacing">
     <view class="session-header">
@@ -11,11 +11,11 @@
       <text class="session-header-more">更多</text>
     </view>
     <view class="session-content session-content-spacing">
-      <scroll-view class="movie-scroll" scroll-x>
+      <!-- <scroll-view class="movie-scroll" scroll-x="true"> -->
         <block wx:for="{{inTheaters.movies}}" wx:for-item="item">
-            <template is="movie-grid-template" data="{{...item}}"/>
+          <template is="movie-grid-template" data="{{...item}}"/>
         </block>
-      </scroll-view>  
+      <!-- </scroll-view> -->
     </view>
   </view>
   <!-- <view class="page-session page-session-spacing">

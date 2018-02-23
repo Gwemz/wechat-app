@@ -91,14 +91,20 @@ Page({
     console.log(readyData);
     this.setData(readyData);
   },
+  // 搜索电影
+  bindSearchNavigate:function(event){
+    wx.navigateTo({
+      url: '/pages/search/search'
+    })
+  }
   // 滑动屏幕
-  handleTouchMove: function (event) {
-    var offsetTop = event.target.offsetTop;
-    console.log('handleTouchMove offsetTop:' + offsetTop);
-    if (offsetTop > 10 && !this.data.acquiredSelected) {
-      this.getSelectedListData();
-    }
-  },
+  // handleTouchMove: function (event) {
+  //   var offsetTop = event.target.offsetTop;
+  //   console.log('handleTouchMove offsetTop:' + offsetTop);
+  //   if (offsetTop > 10 && !this.data.acquiredSelected) {
+  //     this.getSelectedListData();
+  //   }
+  // },
   // 获取精选榜单数据
   // getSelectedListData: function () {
   //   var that = this;
