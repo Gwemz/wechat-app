@@ -36,8 +36,50 @@ rpx(responsive pixel):可以根据屏幕宽度进行自适应。规定屏幕宽�
 数据遍历问题已解决，起始于template组建中将一个字母拼错了  grid -> gird 找了几个小时发现是这问题。。。  :persevere:  :persevere:  :persevere:
 
 #### template模板
-is 
-name
+WXML提供模板(template)，可以在模板中定义代码片段，然后在不同的地方调用
+
+* 定义模板
+
+使用name属性，作为模板名字。然后在<template/> 内定义代码片段，如：
+```
+<template name="msgItem">
+    <view>
+        <text>{{index}}: {{msg}}</text>
+        <text>Time: {{time}}</text>
+    </view>
+</template>
+```
+
+* 使用模板
+使用is属性，声明需要使用的模板，然后将模板需要的data传入，如：
+```
+<template is="msgItem" data="{{...item}}"/>
+
+Page({
+    data:{
+        item:{
+            index: 0,
+            msg: 'this is a template',
+            time: '2016-09-15'
+        }
+    }
+})
+```
+is属性可以使用Mustache语法，来动态决定具体需要渲染哪个模板:
+
+```
+<template name="odd">
+    <view>odd</view>
+</template>
+
+<template name="even">
+    <view>even</view>
+</template>
+
+<block wx:for="{{[1,2,3,4,5]}}">
+    <template is="{{item % 2 == 0 ? 'even' : 'odd'}}"/>
+</block>
+```
 
 #### 参考资源
 
