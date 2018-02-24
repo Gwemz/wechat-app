@@ -1,5 +1,13 @@
 # wechat-app
 
+> 微信小程序开发文档
+
+https://mp.weixin.qq.com/debug/wxadoc/dev/api/
+
+> 小程序登录
+
+https://mp.weixin.qq.com/
+
 ### 微信小程序案例
 
 应用是最好的学习方式，决定学习微信小程序，最好的方式便是找一个案例做练习  选择豆瓣电影，是因为其公开的API
@@ -30,3 +38,7 @@ rpx(responsive pixel):可以根据屏幕宽度进行自适应。规定屏幕宽�
 #### template模板
 is 
 name
+
+#### 参考资源
+
+微信小程序开发资源汇总： https://github.com/justjavac/awesome-wechat-weapp
