@@ -3,7 +3,7 @@
 <template name="movie-list-template">
     <view class="movie-wrapper" data-id="{{id}}">
         <view class="movie-content">
-            <image class="poster" src="{{image.medium}}"></image>
+            <image class="poster" src="{{images.medium}}"></image>
             <view class="movie-summary">
                 <text class="name">{{title}}</text>
                 <text class="directors">导演：{{directors}}</text>

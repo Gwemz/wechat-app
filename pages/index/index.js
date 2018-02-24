@@ -86,7 +86,6 @@ Page({
       categoryTitle: categoryTitle,
       movies: movies
     };
-    console.log(readyData);
     this.setData(readyData);
   },
   // 搜索电影
