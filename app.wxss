@@ -4,6 +4,7 @@ page{
   font-family: -apple-system-font, Arial, Helvetica, sans-serif;
   font-size:32rpx;
   line-height: 1.42857;
+  background:#f8f8f8;
 }
 
 .container{
@@ -36,6 +37,7 @@ page{
 }
 
 .session-content-spacing{
+  padding:0 30rpx;
   margin-bottom:30rpx;
 }
 

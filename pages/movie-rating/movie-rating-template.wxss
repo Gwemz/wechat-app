@@ -1,0 +1,7 @@
+.rating{
+
+}
+.rating-average{
+    font-size:20rpx;
+    color:#878787;
+}

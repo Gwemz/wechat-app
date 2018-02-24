@@ -1,0 +1,6 @@
+<template name="rating-template">
+    <view class="rating">
+        <view class="rating-star"></view>
+        <text class="rating-average">豆瓣评分{{rating.average}}</text>
+    </view>
+</template>

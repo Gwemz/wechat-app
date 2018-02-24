@@ -1,0 +1,28 @@
+<import src="/pages/movie-list/movie-list-template.wxml"/>
+
+<!-- /pages/movie-more/movie-more.wxml -->
+<!-- <view class="container">
+    <view class="session-tab session-tab-spacing">
+        <text class="tab-name">正在热映</text>
+        <text class="tab-name">即将上映</text>
+    </view>
+    <view class="session-movie session-movie-spacing">
+        <view class="session-content">
+            <block wx:if="{{showIntheaters}}">
+                <scroll-view scroll-y="true">
+                    <block wx:for="{{intheaters.movies}}" wx:for-item="item">
+                        <template is="movie-list-template" data="{{...item}}"/>
+                    </block>
+                </scroll-view>
+            </block>
+            <block wx:if="{{showComingSoon}}">
+                <scroll-view scroll-y="true">
+                    <block wx:for="{{comingsoon.movies}}" wx:for-item="item">
+                        <template is="movie-list-template" data="{{...item}}"/>
+                    </block>
+                </scroll-view>
+            </block>
+        </view>
+    </view>
+</view> -->
+<view>这是电影雷彪也</view>

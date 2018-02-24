@@ -1,7 +1,6 @@
 //index.js
 //获取应用实例
 const app = getApp();
-
 Page({
   data: {
     showRating: false,
@@ -19,11 +18,10 @@ Page({
     var inTheatersURL = app.globalData.doubanBase + app.globalData.inTheaters + "?start=0&&count=10";
     var comingSoonURL = app.globalData.doubanBase + app.globalData.comingSoon + "?start=0&&count=10";
 
-    console.log(inTheatersURL, comingSoonURL);
-
     this.getMovieListData(inTheatersURL, "inTheaters", "影院热映");
-    this.getMovieListData(comingSoonURL, "commingSoon", "精选榜单");
+    this.getMovieListData(comingSoonURL, "comingSoon", "精选榜单");
   },
+  // 获取电影列表
   getMovieListData: function (url, settedKey, categoryTitle) {
     wx.showToast({
       title: '加载中',
@@ -54,14 +52,14 @@ Page({
       }
     })
   },
-  // 处理电影数据
+  // 组装电影数据
   processMovieListData: function (data, settedKey, categoryTitle) {
     var movies = [];
     for (let idx in data.subjects) {
       var subject = data.subjects[idx];
       var showRating = false;
       var showWish = false;
-      if ('inTheaters' == settedKey) {
+      if ("inTheaters" == settedKey) {
         showRating = true;
         showWish = false;
       } else {
@@ -95,6 +93,13 @@ Page({
   bindSearchNavigate:function(event){
     wx.navigateTo({
       url: '/pages/search/search'
+    })
+  },
+  // 显示更多电影列表
+  bindMore: function(event){
+    var typeId = event.currentTarget.dataset.typeId;
+    wx.navigateTo({
+      url: '/pages/movie-more/movie-more?typeId='+ typeId
     })
   }
   // 滑动屏幕

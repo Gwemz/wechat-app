@@ -1,27 +1,27 @@
 <!-- /pages/index/index.wxml -->
 <import src="/pages/movie-grid/movie-grid-template.wxml" />
 <view class="container">
-  <view class="session-search session-content-spacing">
+  <view class="session-search">
     <icon class="session-search-icon" type="search" size="16"></icon>
     <text class="search-placeholder" bindtap="bindSearchNavigate">搜索电影</text>
   </view>
   <view class="page-session page-session-spacing">
     <view class="session-header">
       <text class="session-header-title">影院热映</text>
-      <text class="session-header-more">更多</text>
+      <text class="session-header-more" bindtap="bindMore" data-type-id="intheaters">更多</text>
     </view>
     <view class="session-content session-content-spacing">
-      <!-- <scroll-view class="movie-scroll" scroll-x="true"> -->
+      <scroll-view class="movie-scroll" scroll-x="true">
         <block wx:for="{{inTheaters.movies}}" wx:for-item="item">
-          <template is="movie-grid-template" data="{{...item}}"/>
+          <template is="movie-grid-template" data="{{...item}}" />
         </block>
-      <!-- </scroll-view> -->
+      </scroll-view>
     </view>
   </view>
-  <!-- <view class="page-session page-session-spacing">
+  <view class="page-session page-session-spacing">
     <view class="session-header">
       <text class="session-header-title">即将上映</text>
-      <text class="session-header-more">更多</text>
+      <text class="session-header-more" bindtap="bindMore" data-type-id="comingsoon">更多</text>
     </view>
     <view class="session-content session-content-spacing">
       <scroll-view class="movie-scroll" scroll-x="true">
@@ -30,7 +30,7 @@
         </block>
       </scroll-view>
     </view>
-  </view> -->
+  </view>
   <!-- <view class="page-session page-session-spacing">
     <view class="session-header">
       <text class="session-header-title">精选榜单</text>

@@ -1,0 +1,30 @@
+.movie-content{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.movie-wrapper{
+    display:inline-block;
+    margin-right:10rpx;
+}
+.movie-wrapper .poster {
+    width: 200rpx;
+    height: 280rpx;
+  }
+.movie-wrapper  .name{
+    width:200rpx;
+    color:#4a4a4a;
+    font-size:28rpx;
+    font-weight:600;
+    text-align:center;
+    line-height:1.6;
+    /* 允许在单词内换行 */
+    word-break:break-all;
+    /* 被修建文本用省略号替代 */
+    text-overflow:ellipsis;   
+}
+.movie-content .wish-count{
+    color:#9e9e9e;
+    font-size:24rpx;
+    font-weight:500;
+}
