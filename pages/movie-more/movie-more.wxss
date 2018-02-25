@@ -1,3 +1,13 @@
+@import "/pages/movie-list/movie-list-template.wxss";
+.session-movie{
+    background:#ffffff;
+    border-width:1px 0px 0px 0px;
+    border-style:solid;
+    border-color:#e6e6e6;
+}
+.session-movie-spacing{
+    margin-top:84rpx;
+}
 .session-tab-spacing{
     border-width:1px 0px;
     border-style:solid;

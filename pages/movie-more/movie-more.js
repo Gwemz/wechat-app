@@ -115,7 +115,28 @@ Page({
     },
     // 切换标签页
     bindSelected:function(event){
-
+        var that = this;
+        var tabId = event.currentTarget.dataset.tabId;
+        var readyData = {};
+        if(tabId == "intheaters"){
+            console.log('intheaters');
+            readyData = {"showIntheaters":true,"showComingSoon":false};
+            if(!that.data.acquireIntheaters){
+                readyData["acquireIntheaters"] = true;
+                that.getMovieListData(tabId);
+            }
+            this.setData(readyData);
+        }else if(tabId == "comingsoon"){
+            console.log('commingsoon');
+            readyData = {"showIntheaters":false,"showComingSoon":true};
+            if(!that.data.acquireComingsoon){
+                readyData["acquireComingsoon"] = true;
+                that.getMovieListData(tabId);
+            }
+            that.setData(readyData);
+        }else{
+            console.log('error');
+        }
     },
     // 跳转到电影详情页
     bindMovieDetail:function(event){
