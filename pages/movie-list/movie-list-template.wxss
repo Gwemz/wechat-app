@@ -1,3 +1,4 @@
+@import "/pages/movie-rating/movie-rating-template.wxss";
 .movie-wrapper{
     padding:30rpx;
     border-bottom:1px solid #e6e6e6;

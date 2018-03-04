@@ -1,7 +1,14 @@
 .rating{
-
+    display:flex;
+    flex-direction: row;
+    position: relative;
+    margin-top:10rpx;
+    margin-bottom:10rpx;
 }
 .rating-average{
     font-size:20rpx;
     color:#878787;
+    line-height:22rpx;
+    color:#878787;
+    height:22rpx;
 }

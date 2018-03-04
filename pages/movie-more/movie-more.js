@@ -118,6 +118,7 @@ Page({
         var that = this;
         var tabId = event.currentTarget.dataset.tabId;
         var readyData = {};
+        console.log(that,tabId);
         if(tabId == "intheaters"){
             console.log('intheaters');
             readyData = {"showIntheaters":true,"showComingSoon":false};

@@ -1,0 +1,39 @@
+<!-- pages/movie-detail/movie-detail.wxml -->
+
+<view class="container">
+    <!-- 海报 -->
+    <view class="session-poster session-poster-spacing">
+        <image class="poster" src="{{movie.images.large}}" bindtap="bindPoster" data-poster-url="{{movie.images.large}}"></image>
+    </view>
+    <view class="summary-session">
+        <view class="movie-summary">
+            <text class="name"></text>
+            <text class="subtype"></text>
+            <text class="origin-name"></text>
+            <text class="countries"></text>
+        </view>
+        <view class="movie-rating">
+            <text class="average"></text>
+            <text class="rating"></text>
+            <text class="ratings_count"></text>
+        </view>
+    </view>
+    <view class="wish-do-session">
+        <text class="wish-btn">想看</text>
+        <text class="do-btn">看过</text>
+    </view>
+    <view class="desc-session">
+        <text class="title"></text>
+        <text class="desc-wrapper"></text>
+    </view>
+    <view class="director-casts-session">
+        <view class="title"></view>
+        <scroll-view class="directors-casts-scroll">
+            <view class="directors-casts-wrapper">
+                <view class="directors-casts-content">
+                    <image src=""></image>
+                </view>
+            </view>
+        </scroll-view>
+    </view>
+</view>
