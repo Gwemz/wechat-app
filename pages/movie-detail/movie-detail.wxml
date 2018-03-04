@@ -7,33 +7,45 @@
     </view>
     <view class="summary-session">
         <view class="movie-summary">
-            <text class="name"></text>
-            <text class="subtype"></text>
-            <text class="origin-name"></text>
-            <text class="countries"></text>
+            <text class="name">{{movie.title}}</text>
+            <text class="subtype">{{movie.year}}/{{movie.genres}}</text>
+            <text class="origin-name">{{movie.originalTitle}}</text>
+            <text class="countries">{{movie.countries}}</text>
         </view>
         <view class="movie-rating">
-            <text class="average"></text>
+            <text class="average">{{movie.rating.average}}</text>
             <text class="rating"></text>
-            <text class="ratings_count"></text>
+            <text class="ratings_count">{{movie.ratingsCount}}</text>
         </view>
     </view>
     <view class="wish-do-session">
-        <text class="wish-btn">想看</text>
-        <text class="do-btn">看过</text>
+        <text class="wish-btn" catchtap="handleWishtap">想看</text>
+        <text class="do-btn" data-id="{{movie.id}}" catchtap="handleDotap">看过</text>
     </view>
     <view class="desc-session">
-        <text class="title"></text>
-        <text class="desc-wrapper"></text>
+        <text class="title">简介</text>
+        <block wx:if="{{movie.summary.length > 0}}">
+            <text class="desc-wrapper">
+                <text class="desc-content {{showAllDesc ? 'desc-content-auto':'desc-content-3line'}}">{{movie.summary}}</text>
+                <block wx:if="{{!showAllDesc}}">
+                    <text class="extension" bindtap="handleExtensiontap">展开</text>
+                </block>
+            </text>
+        </block>
+
     </view>
     <view class="director-casts-session">
-        <view class="title"></view>
-        <scroll-view class="directors-casts-scroll">
-            <view class="directors-casts-wrapper">
-                <view class="directors-casts-content">
-                    <image src=""></image>
+        <view class="title">影人</view>
+        <scroll-view class="directors-casts-scroll" scroll-x="true">
+            <block wx:for="{{movie.directorsAndCasts}}" wx:for-tem="item">
+                <view class="directors-casts-wrapper" data-id="{{item.id}}" data-avatar="{{item.avatars.large}}" bindtap="handleCelebrity">
+                    <view class="directors-casts-content">
+                        <image class="image" src="{{item.avatars.small}}"></image>
+                        <text class="name">{{item.name}}</text>
+                    </view>
                 </view>
-            </view>
+            </block>
+
         </scroll-view>
     </view>
 </view>

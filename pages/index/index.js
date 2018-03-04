@@ -100,6 +100,13 @@ Page({
     wx.navigateTo({
       url: '/pages/movie-more/movie-more?typeId='+ typeId
     })
+  },
+  // 跳转到电影详情页
+  bindMovieDetail:function(event){
+    var id = event.currentTarget.dataset.id;
+    wx.navigateTo({
+      url: '/pages/movie-detail/movie-detail?id='+id
+    })
   }
   // 滑动屏幕
   // handleTouchMove: function (event) {
