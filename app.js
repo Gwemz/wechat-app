@@ -2,6 +2,12 @@
 App({
   onLaunch: function () {
     var that = this;
+    wx.BaaS = requirePlugin('sdkPlugin')
+    //让插件帮助完成登录、支付等功能
+    wx.BaaS.wxExtend(wx.login,wx.getUserInfo,wx.requestPayment)
+    let clientId = this.globalData.clientId;
+    // console.log(wx.BaaS,clientId);
+    wx.BaaS.init(clientId,{autoLogin:true});
     // 使用设备可视宽高
     wx.getSystemInfo({
       success: function(res) {
@@ -31,6 +37,8 @@ App({
     }
   },
   globalData: {
+    clientId: '5a3bd23aa2dd6c5d759c',
+    tableName: 'bookshelf',
     userInfo: null,
     windowWidth: 0,
     windowHeight: 0,

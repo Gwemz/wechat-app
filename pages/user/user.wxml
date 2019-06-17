@@ -1,0 +1,35 @@
+<view class="container">
+    <!-- 添加书单 -->
+    <view class="opera-container">
+        <view class="opera-title">添加书单</view>
+        <view class="opera-item">
+            <text>书单名：</text>
+            <input type="text" bindinput="keyInput" placeholder="请输入书单名" value="{{creatingBookName}}"/>
+            <view class="confirm" bindtap="confirm">添加</view>
+        </view>
+    </view>
+    <!-- <button class="clickBtn" bindtap="createBook">点击事件</button> -->
+    <!-- 书单列表 -->
+    <view class="opera-container">
+        <view class="opera-title">书单列表</view>
+        <view class="lists">
+            <view class="item" wx:for="{{bookList}}" wx:key="{{item.id}}">
+                <view>创建日期：{{item.created_at}}</view>
+                <view class="item-detail">
+                    <block wx:if="{{item.edit}}">
+                        <view>书单名：<input type="text" value="{{item.bookName}}" data-idx="{{index}}" bindinput="bookInput"/></view>
+                    </block>
+                    <block wx:else>
+                        <view>书单名：{{item.bookName}}</view>
+                    </block>
+                    <view>
+                        <view class="editBtn" bindtap="bookEdit" data-id="{{item.id}}" data-idx="{{index}}">{{item.edit?'保存':'编辑'}}</view>
+                        <view class="deleteBtn" data-idx="{{index}}" bindtap="bookDelete">删除</view>
+                    </view>
+                </view>
+            </view>
+        </view>
+    </view>
+    <!-- <view class="title"></view> -->
+    
+</view>

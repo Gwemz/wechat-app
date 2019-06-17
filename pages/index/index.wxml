@@ -12,7 +12,7 @@
     </view>
     <view class="session-content session-content-spacing">
       <scroll-view class="movie-scroll" scroll-x="true">
-        <block wx:for="{{inTheaters.movies}}" wx:for-item="item">
+        <block wx:for="{{inTheaters.movies}}" wx:for-item="item" wx:key="{{index}}">
           <template is="movie-grid-template" data="{{...item}}" />
         </block>
       </scroll-view>
@@ -25,7 +25,7 @@
     </view>
     <view class="session-content session-content-spacing">
       <scroll-view class="movie-scroll" scroll-x="true">
-        <block wx:for="{{comingSoon.movies}}" wx:for-item="item">
+        <block wx:for="{{comingSoon.movies}}" wx:for-item="item" wx:key="{{index}}">
             <template is="movie-grid-template" data="{{...item}}"/>
         </block>
       </scroll-view>

@@ -1,5 +1,6 @@
 {
-  "pages":[
+  "pages": [
+    "pages/user/user",
     "pages/index/index",
     "pages/logs/logs",
     "pages/search/search",
@@ -9,10 +10,17 @@
     "pages/movie-detail/rating/rating",
     "pages/movie-detail/movie-poster/movie-poster"
   ],
-  "window":{
-    "backgroundTextStyle":"light",
+  "window": {
+    "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#91d5ff",
     "navigationBarTitleText": "豆瓣电影",
-    "navigationBarTextStyle":"black"
-  }
+    "navigationBarTextStyle": "black"
+  },
+  "sitemapLocation": "sitemap.json",
+  "plugins": {
+    "sdkPlugin": {
+      "version": "2.0.9",
+      "provider": "wxc6b86e382a1e3294"
+    }
+  } 
 }
