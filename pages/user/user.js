@@ -3,7 +3,8 @@ import tools from '../../utils/util'
 let temp;
 Page({
     data:{
-        creatingBookName: '',
+        creatingBookName: '',       //当前正在创建的书名
+        creatingBookAuthor: '',     //当前正在创建的作者名
         profile: '',        //用户信息
         bookList: [],        //书单列表
         curRecordId: '',      //编辑图书对应的id
@@ -43,10 +44,18 @@ Page({
         })
     },
     confirm(){
-        let bookName = temp.data.creatingBookName;
+        let bookName = temp.data.creatingBookName,
+            author = temp.data.creatingBookAuthor;
         if(!bookName){
             wx.showToast({
                 title:'请输入书单名',
+                icon: 'none'
+            })
+            return false;
+        }
+        if(!author){
+            wx.showToast({
+                title:'请输入作者名',
                 icon: 'none'
             })
             return false;
@@ -71,24 +80,28 @@ Page({
     // 创建书籍
     createBook(e){
         let bookName = temp.data.creatingBookName // 缓存在 data 对象中的输入框输入的书名
+        let author= temp.data.creatingBookAuthor    //作者名
         let Books = new wx.BaaS.TableObject('bookshelf') //实例化对应 tableName 的数据表对象
         let book = Books.create() // 创建一条记录
     
       // 调用创建数据项接口，进行数据的持久化存储，详见：https://doc.minapp.com/js-sdk/schema/create-record.html
-        book.set({bookName})
+        book.set({bookName,author})
           .save()
           .then(() => {
             //...
             temp.setData({
-                creatingBookName: ''
+                creatingBookName: '',
+                creatingBookAuthor: ''
             })
             temp.fetchBookList()
           })
     },
     keyInput(e){
-        let value = e.detail.value;
+        let type = e.currentTarget.dataset.type,
+            key = type == 0?'creatingBookName':'creatingBookAuthor',
+            value = e.detail.value;
         temp.setData({
-            creatingBookName: value
+            [key]: value
         })
     },
     // 编辑/更新书名

@@ -4,7 +4,8 @@
         <view class="opera-title">添加书单</view>
         <view class="opera-item">
             <text>书单名：</text>
-            <input type="text" bindinput="keyInput" placeholder="请输入书单名" value="{{creatingBookName}}"/>
+            <input type="text" bindinput="keyInput" data-type="0" placeholder="请输入书单名" value="{{creatingBookName}}"/>
+            <input type="text" bindinput="keyInput" data-type="1" placeholder="请输入作者名" value="{{creatingBookAuthor}}"/>
             <view class="confirm" bindtap="confirm">添加</view>
         </view>
     </view>
