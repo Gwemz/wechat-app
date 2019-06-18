@@ -4,7 +4,9 @@ App({
     var that = this;
     wx.BaaS = requirePlugin('sdkPlugin')
     //让插件帮助完成登录、支付等功能
-    wx.BaaS.wxExtend(wx.login,wx.getUserInfo,wx.requestPayment)
+    wx.BaaS.wxExtend(wx.login,
+     wx.getUserInfo,
+     wx.requestPayment)
     let clientId = this.globalData.clientId;
     // console.log(wx.BaaS,clientId);
     wx.BaaS.init(clientId,{autoLogin:true});
